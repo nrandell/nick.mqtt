@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nick.Mqtt", "Nick.Mqtt\Nick.Mqtt.csproj", "{E570068D-6B3C-46AE-BF6A-3B011980A79A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{414AE95B-28A4-487B-95BB-050915F795BE}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		version.json = version.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E570068D-6B3C-46AE-BF6A-3B011980A79A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E570068D-6B3C-46AE-BF6A-3B011980A79A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E570068D-6B3C-46AE-BF6A-3B011980A79A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E570068D-6B3C-46AE-BF6A-3B011980A79A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FA7A4FC-59B1-49B0-A9DA-87837C65D9E7}
+	EndGlobalSection
+EndGlobal
