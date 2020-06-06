@@ -30,7 +30,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Package
-      run: dotnet pack -c Release -o package --no-build
+      run: dotnet pack -c Release -o ./package --no-build
 
     - name: Publish nuget
-      run: dotnet nuget push package/*.nupkg --skip-duplicate
+      run: dotnet nuget push ./package/*.nupkg --skip-duplicate
