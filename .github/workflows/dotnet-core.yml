@@ -13,13 +13,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.101
-    - name: Nerdbank.GitVersioning
-      uses: dotnet/nbgv@v0.3.1
+        dotnet-version: 3.1.300
+
     - name: Install dependencies
       run: dotnet restore
+
+    - name: Nerdbank.GitVersioning
+      uses: dotnet/nbgv@v0.3.1
+
     - name: Build
       run: dotnet build --configuration Release --no-restore
