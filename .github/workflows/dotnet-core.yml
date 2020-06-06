@@ -22,8 +22,11 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
 
-    - name: Nerdbank.GitVersioning
-      uses: dotnet/nbgv@v0.3.1
-
     - name: Build
       run: dotnet build --configuration Release --no-restore
+
+    - name: Package
+      run: dotnet pack -c Release -o package --no-build
+
+    - name: Publish nuget
+      run: dotnet nuget push ./<project>/out/*.nupkg --skip-duplicate
