@@ -20,8 +20,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.300
-      env:
-        NUGET_AUTH_TOKEN: ${{secrets.NUGET_KEY}}
 
     - name: Install dependencies
       run: dotnet restore
@@ -33,4 +31,4 @@ jobs:
       run: dotnet pack -c Release -o package --no-build
 
     - name: Publish nuget
-      run: dotnet nuget push --source https://api.nuget.org/v3/index.json --skip-duplicate package/*.nupkg
+      run: dotnet nuget push --api-key ${{secrets.NUGET_KEY}} --source https://api.nuget.org/v3/index.json --skip-duplicate package/*.nupkg
