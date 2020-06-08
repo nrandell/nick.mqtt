@@ -62,7 +62,7 @@ namespace Nick.Mqtt
             client.UseDisconnectedHandler(HandleDisconnected);
             client.UseConnectedHandler(HandleConnected);
 
-            await Connect(stoppingToken);
+            await Connect(stoppingToken).ConfigureAwait(false);
         }
 
         private Task HandleConnected(MqttClientConnectedEventArgs arg)
@@ -79,19 +79,19 @@ namespace Nick.Mqtt
         {
             Logger.LogWarning(ev.Exception, "Client disconnected: {WasConnected} {Exception}", ev.ClientWasConnected, ev.Exception.Message);
             var delay = _jitterBackoff.Next();
-            await Task.Delay(delay, ApplicationLifetime.ApplicationStopping);
-            await Connect(ApplicationLifetime.ApplicationStopping);
+            await Task.Delay(delay, ApplicationLifetime.ApplicationStopping).ConfigureAwait(false);
+            await Connect(ApplicationLifetime.ApplicationStopping).ConfigureAwait(false);
         }
 
         private async Task Connect(CancellationToken stoppingToken)
         {
             try
             {
-                await Client.ConnectAsync(Options, stoppingToken);
+                await Client.ConnectAsync(Options, stoppingToken).ConfigureAwait(false);
                 var subsciptionOptions = SubscriptionOptions;
                 if (subsciptionOptions != null)
                 {
-                    var subscription = await Client.SubscribeAsync(SubscriptionOptions, stoppingToken);
+                    var subscription = await Client.SubscribeAsync(SubscriptionOptions, stoppingToken).ConfigureAwait(false);
                     OnSubscribed(subscription);
                 }
             }
