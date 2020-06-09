@@ -19,13 +19,13 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.300
+        dotnet-version: 5.0.100-preview.4.20258.7
 
     - name: Install dependencies
       run: dotnet restore
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build -p ContinuousIntegrationBuild=true --configuration Release --no-restore
 
     - name: Package
       run: dotnet pack -c Release -o package --no-build
