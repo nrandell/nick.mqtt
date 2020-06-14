@@ -9,9 +9,9 @@
     <PackageReference Include="Microsoft.Extensions.Options" Version="3.1.4" />
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
-    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="5.0.0-preview.4.20251.6" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0-preview.4.20251.6" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0-preview.4.20251.6" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="5.0.0-preview.5.*" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0-preview.5.*" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0-preview.5.*" />
   </ItemGroup>
   <ItemGroup>
       <PackageReference Include="MQTTnet" Version="3.0.11" />

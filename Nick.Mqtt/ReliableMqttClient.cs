@@ -88,10 +88,12 @@ namespace Nick.Mqtt
             try
             {
                 await Client.ConnectAsync(Options, stoppingToken).ConfigureAwait(false);
-                var subsciptionOptions = SubscriptionOptions;
-                if (subsciptionOptions != null)
+                Logger.LogInformation("Connected");
+                var subscriptionOptions = SubscriptionOptions;
+                if (subscriptionOptions != null)
                 {
                     var subscription = await Client.SubscribeAsync(SubscriptionOptions, stoppingToken).ConfigureAwait(false);
+                    Logger.LogInformation("Subscribed");
                     OnSubscribed(subscription);
                 }
             }
