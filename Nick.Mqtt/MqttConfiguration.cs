@@ -27,7 +27,9 @@ namespace Nick.Mqtt
                 builder = builder.WithCredentials(User, Password);
             }
 
-            return builder.Build();
+            return Configure(builder).Build();
         }
+
+        public virtual MqttClientOptionsBuilder Configure(MqttClientOptionsBuilder builder) => builder;
     }
 }
