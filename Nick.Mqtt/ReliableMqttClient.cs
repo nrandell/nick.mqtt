@@ -42,6 +42,9 @@ namespace Nick.Mqtt
 
         protected ReliableMqttClient(ILogger logger, IMqttFactory factory, TConfiguration configuration, IHostApplicationLifetime applicationLifetime)
         {
+            if (factory == null) throw new ArgumentNullException(nameof(factory));
+            if (configuration == null) throw new ArgumentNullException(nameof(configuration));
+
             _foreverJitter = new ForeverJitter(TimeSpan.FromSeconds(1), 10, TimeSpan.FromSeconds(60));
             _jitterBackoff = new JitterBackoff(_foreverJitter);
 
@@ -97,7 +100,7 @@ namespace Nick.Mqtt
                     OnSubscribed(subscription);
                 }
             }
-            catch (Exception ex)
+            catch (Exception ex) when (!stoppingToken.IsCancellationRequested)
             {
                 Logger.LogWarning(ex, "Failed to connect: {Exception}", ex.Message);
             }
