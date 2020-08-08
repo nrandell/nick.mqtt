@@ -80,7 +80,7 @@ namespace Nick.Mqtt
 
         private async Task HandleDisconnected(MqttClientDisconnectedEventArgs ev)
         {
-            Logger.LogWarning(ev.Exception, "Client disconnected: {WasConnected} {Exception}", ev.ClientWasConnected, ev.Exception.Message);
+            Logger.LogWarning(ev.Exception, "Client disconnected: {WasConnected} {Exception}", ev.ClientWasConnected, ev.Exception?.Message);
             var delay = _jitterBackoff.Next();
             await Task.Delay(delay, ApplicationLifetime.ApplicationStopping).ConfigureAwait(false);
             await Connect(ApplicationLifetime.ApplicationStopping).ConfigureAwait(false);
