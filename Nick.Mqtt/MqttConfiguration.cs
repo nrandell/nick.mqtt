@@ -19,7 +19,12 @@ namespace Nick.Mqtt
 
             if (Tls)
             {
-                builder = builder.WithTls();
+                builder = builder.WithTls(new MqttClientOptionsBuilderTlsParameters
+                {
+                    UseTls = true,
+                    SslProtocol = System.Security.Authentication.SslProtocols.Tls12,
+                    CertificateValidationHandler = _ => true
+                });
             }
 
             if (User != null)
